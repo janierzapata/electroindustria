@@ -1,0 +1,28 @@
+body {
+  background-color: #23395B;
+  color: white;
+}
+
+.container{
+  margin-top: 20%;
+  width: 40%;
+  border-radius: 5% !important;
+}
+
+.header-login{
+    background-color: #161925;
+    text-align: center;
+}
+
+.header-login h1 {
+    margin: 0;
+}
+.login {
+  background-color: #406E8E;
+  padding: 5%;
+}
+
+.btn-login{
+    background-color: #EA7317;
+    width: 100%;
+}
