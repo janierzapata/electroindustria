@@ -1,0 +1,12 @@
+.body {
+  margin-top: 4%;
+  margin-left: 7%;
+}
+
+.me-auto {
+  margin: auto;
+}
+
+.nav-link:hover{
+    cursor: pointer;
+}
