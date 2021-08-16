@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const http = axios.create({
     baseURL: 'http://localhost/sena-php',
-    withCredentials: false,
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
