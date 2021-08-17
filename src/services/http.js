@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-    baseURL: 'http://localhost/sena-php',
+    baseURL: 'http://localhost:8080/login-react',
     headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',

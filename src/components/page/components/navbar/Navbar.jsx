@@ -39,18 +39,20 @@ export const Navbar = (props) => {
               </li>
 
               <li className="nav-item">
-                <NavLink to="/Search">
+                <NavLink to="/AddProduct">
                   <a className="nav-link" href="#/">
-                    Buscar
+                    Nuevo Producto
                   </a>
                 </NavLink>
               </li>
 
               <li className="nav-item">
-                
+              <NavLink to="/">
+
                   <p className="nav-link" onClick={salir}>
                     Salir
                   </p>
+              </NavLink>
                 
               </li>
 

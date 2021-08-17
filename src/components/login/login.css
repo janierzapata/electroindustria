@@ -26,3 +26,7 @@ body {
     background-color: #EA7317;
     width: 100%;
 }
+
+label{
+  width: 100%;
+}

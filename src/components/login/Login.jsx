@@ -16,10 +16,13 @@ export const Login = (props) => {
       clave: refPass.current.value,
     };
 
-    login(data).then((response) => {
-      props.ingresar(response.conectado);
-      setError(response.error);
-    });
+  
+   
+      login(data).then((response) => {
+        props.ingresar(response.conectado);
+        setError(response.error);
+      });
+    
     setEspera(false);
   };
 
@@ -30,27 +33,25 @@ export const Login = (props) => {
       </div>
       <div className="  login ">
         <div className="mb-3">
-          <label for="exampleInputEmail1" className="form-label">
+          <label className="form-label">
             Correo Electronico
+            <input
+              type="email"
+              className="form-control mt-3"
+              ref={refUser}
+              aria-describedby="emailHelp"
+            />
           </label>
-          <input
-            type="email"
-            className="form-control"
-            ref={refUser}
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
         </div>
         <div className="mb-3">
-          <label for="pss" className="form-label">
+          <label className="form-label">
             Conraseña
+            <input
+              type="password"
+              className="form-control mt-3"
+              ref={refPass}
+            />
           </label>
-          <input
-            type="password"
-            className="form-control"
-            ref={refPass}
-            id="pss"
-          />
         </div>
         {error && (
           <div className="alert alert-dismissible alert-danger">
