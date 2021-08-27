@@ -139,7 +139,7 @@ export const AddProduct = () => {
               Imagen
               <input
                 type="file"
-                disabled="true"
+                disabled={true}
                 className="form-control mt-3"
                 
               />

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { useEffect } from "react";
 
 const Lineas = [
   {
@@ -59,9 +58,7 @@ const Lineas = [
           },
         ],
       },
-      {
-        label: "grupo 2",
-      },
+     
     ],
   },
   {
@@ -122,7 +119,7 @@ const Lineas = [
   },
 ];
 
-const Select = ({ valueSelected, handleOnchange }) => {
+const Select = ({  handleOnchange }) => {
   
   const [grupos, setGrupos] = useState(-1);
   const [subgrupo, setSubgrupo] = useState(-2);
@@ -150,11 +147,11 @@ const Select = ({ valueSelected, handleOnchange }) => {
             className="form-select mt-3"
             name="linea"
             id="lineas"
-            value={valueSelected}
+            
             onChange={handleOnchange}
             onClick={handleGrupos}
           >
-            <option value={-1} selected disabled>
+            <option value={-1} selected disabled={true}>
               Selecciona una linea
             </option>
             {
@@ -173,13 +170,13 @@ const Select = ({ valueSelected, handleOnchange }) => {
           Grupo
           <select
             className="form-select mt-3"
-            name="grupos"
-            id="grupos"
-            value={valueSelected}
+            name="grupo"
+            id="grupo"
+            
             onChange={handleOnchange}
             onClick={handleSubgrupo}
           >
-            <option value={-1} selected disabled>
+            <option value={-1} selected disabled ={true}>
               Selecciona un grupo
             </option>
             {
@@ -200,9 +197,9 @@ const Select = ({ valueSelected, handleOnchange }) => {
             className="form-select mt-3"
             name="subGrupos"
             id="subGrupos"
-            value={valueSelected}
+            
           >
-            <option value={-1} selected disabled>
+            <option value={-1} selected disabled={true}>
               Selecciona un Sub Grupo
             </option>
             {subgrupo > -1 &&
