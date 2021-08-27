@@ -8,6 +8,7 @@ export const Navbar = (props) => {
 
   function salir () {
     props.ingresar(false)
+    localStorage.clear();
   }
 
   return (
@@ -31,18 +32,16 @@ export const Navbar = (props) => {
           <div className="collapse navbar-collapse" id="navbarColor01">
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
-                <NavLink to="/Inventory">
-                  <a className="nav-link" href="#/">
+                <NavLink className="nav-link" to="/Inventory">
+                  
                     Inventario
-                  </a>
+                  
                 </NavLink>
               </li>
 
               <li className="nav-item">
-                <NavLink to="/AddProduct">
-                  <a className="nav-link" href="#/">
+                <NavLink className="nav-link" to="/AddProduct">
                     Nuevo Producto
-                  </a>
                 </NavLink>
               </li>
 

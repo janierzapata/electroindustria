@@ -7,9 +7,9 @@ import { Page } from "./components/page/Page";
 
 
 
+
 function App() {
   const [state, setState] = useState(false);
-
 
   const ingresar = (estado) => {
     setState(estado)
@@ -33,9 +33,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/">
-
             <Login ingresar={ingresar}/>
-
           </Route>
         </Switch>
       </Router>

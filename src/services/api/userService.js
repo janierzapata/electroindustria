@@ -3,7 +3,7 @@ import http from "..";
 
 export const login = async (body) => {
      try {
-         const { data } = await http.post('/login.php', {
+         const { data } = await http.post('login-react/login.php', {
              data: body
          });
 
@@ -14,3 +14,16 @@ export const login = async (body) => {
      }
  };
 
+ export const create = async (form) => {
+    
+    try {
+        const { data } = await http.post('inventario/db/registrar.php', {
+            data:form
+        });
+
+       
+        return data;
+    } catch (error) {
+        console.log('el error es',error);
+    }
+};
