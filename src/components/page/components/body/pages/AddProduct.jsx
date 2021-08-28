@@ -8,7 +8,7 @@ const initialForm = {
   ref: "",
   location: "",
   linea: "",
-  grupos: "",
+  grupo: "",
   sub: "",
   cant: "",
   urlImg: "",
@@ -139,7 +139,7 @@ export const AddProduct = () => {
               Imagen
               <input
                 type="file"
-                disabled="true"
+                disabled={true}
                 className="form-control mt-3"
                 
               />
