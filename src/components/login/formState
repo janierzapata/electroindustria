@@ -1,54 +1,51 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { login } from "../../services/api/userService";
 import "./login.css";
 
 export const Login = (props) => {
-
-  const localuser = localStorage.getItem('user');
-  
-  if (localuser !== null) {
-    props.ingresar(true);
-  }
-
- 
-
   const [error, setError] = useState(null);
   const [espera, setEspera] = useState(false);
+  const [formState, setFormState] = useState({
+    usuario:'',
+    clave:''
+  });
 
-  const refUser = useRef(null);
-  const refPass = useRef(null);
+  const {usuario, clave} =formState;
 
-  const handleLogin = () => {
-    
+
+  const handleLogin = ( { target }) => {
     setEspera(true);
-    const data = {
-      usuario: refUser.current.value,
-      clave: refPass.current.value,
-    };
 
-    login(data).then((response) => {
-      props.ingresar(response.conectado);
-      localStorage.setItem('user', JSON.stringify(data))
-      setError(response.error);
+    setFormState ({
+      ...formState,
+      [target.name]:target.value
     });
+
+
+      login(formState).then((response) => {
+        props.ingresar(response.conectado);
+        setError(response.error);
+      });
     
     setEspera(false);
   };
 
   return (
-    <div className="container">
+    <form className="container">
       <div className="header-login">
         <h1>Bienvenido</h1>
       </div>
       <div className="  login ">
         <div className="mb-3">
           <label className="form-label">
-            Usuario
+            Correo Electronico
             <input
-              type="text"
+              type="email"
+              name="usuario"
+              value={usuario}
+              onChange={handleLogin}
               className="form-control mt-3"
-              placeholder="user name"
-              ref={refUser}
+              aria-describedby="emailHelp"
             />
           </label>
         </div>
@@ -57,9 +54,10 @@ export const Login = (props) => {
             Contraseña
             <input
               type="password"
-              placeholder="*************"
+              name="clave"
+              value={clave}
+              onChange={handleLogin}
               className="form-control mt-3"
-              ref={refPass}
             />
           </label>
         </div>
@@ -79,6 +77,6 @@ export const Login = (props) => {
         </button>
         
       </div>
-    </div>
+    </form>
   );
 };

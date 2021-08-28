@@ -1,0 +1,44 @@
+[
+  {
+    "value": "00",
+    "label": "Linea 00 ",
+    "grupos": [
+      {
+        "label": "grupo 0",
+        "value": "00",
+        "subgrupos": [
+          {
+            "label": "subgrupo 0",
+            "value": "00"
+          },
+          {
+            "label": "subgrupo 1",
+            "value": "01"
+          },
+          {
+            "label": "subgrupo 2",
+            "value": "02"
+          }
+        ]
+      },
+      {
+        "label": "grupo 0",
+        "value": "00",
+        "subgrupos": [
+          {
+            "label": "subgrupo 0",
+            "value": "00"
+          },
+          {
+            "label": "subgrupo 1",
+            "value": "01"
+          },
+          {
+            "label": "subgrupo 2",
+            "value": "02"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -9,7 +9,7 @@ import {
 import { Navbar } from "./components/navbar/Navbar";
 import { NotFound } from "./components/body/pages/NotFound";
 import { Inventory } from "./components/body/pages/Inventory";
-import { Search } from "./components/body/pages/Search";
+import { AddProduct } from "./components/body/pages/AddProduct";
 
 export const Page = ( props ) => {
   return (
@@ -18,7 +18,7 @@ export const Page = ( props ) => {
         <div>
           <Navbar ingresar={props.ingresar}/>
         </div>
-        <div className="body">
+        <div >
           <Switch>
             <Route path="/" exact>
               <div className="body">
@@ -32,9 +32,9 @@ export const Page = ( props ) => {
               </div>
             </Route>
 
-            <Route path="/Search" exact>
+            <Route path="/AddProduct" exact>
               <div className="body">
-                <Search />
+                <AddProduct />
               </div>
             </Route>
 
