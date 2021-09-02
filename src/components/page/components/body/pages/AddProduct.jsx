@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 
 import { create } from "../../../../../services/api/userService";
-import Select from "./Select";
+import { Select } from "./components/Select";
 
 const initialForm = {
   name: "",
@@ -17,19 +17,23 @@ const initialForm = {
 const SelecMemorize = React.memo(Select);
 
 export const AddProduct = () => {
+  const [error, setError] = useState(null);
   const [espera, setEspera] = useState(false);
   const [formState, setFormState] = useState(initialForm);
 
   const { name, ref, location, cant } = formState;
 
-  const handleChange = useCallback((e) => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
-    });
-  },[formState]);
-  
-  console.log('form', formState);
+  const handleChange = useCallback(
+    (e) => {
+      setFormState({
+        ...formState,
+        [e.target.name]: e.target.value,
+      });
+    },
+    [formState]
+  );
+
+  console.log("form", formState);
 
   const handleAdd = () => {
     setEspera(true);
@@ -43,24 +47,22 @@ export const AddProduct = () => {
       formState.sub !== "" &&
       formState.cant !== ""
     ) {
-      console.log("antes del create", formState);
       create(formState).then((resp) => {
-        console.log("dentr del create", formState);
-        console.log("respuest fetch", resp);
-        alert("Se creo el produto Correctamente");
+        if (resp.existe) {
+          setError(resp.error);
+        } else {
+          setFormState(initialForm);
+          setError(null);
+        }
       });
-      setFormState(initialForm);
     } else {
       alert("Debes llenar todos los campos");
     }
     setEspera(false);
   };
 
-  
-
   return (
     <div>
-      
       <div className="header-login">
         <h1>Add a New product</h1>
       </div>
@@ -108,16 +110,7 @@ export const AddProduct = () => {
           </div>
         </div>
 
-        
-          <SelecMemorize
-            nombre={"linea"}
-            handleOnchange={handleChange}
-          />
-
-          
-
-          
-       
+        <SelecMemorize nombre={"linea"} handleOnchange={handleChange} />
 
         <div className="d-flex justify-content-between">
           <div className="mb-3 col-md-4">
@@ -141,12 +134,15 @@ export const AddProduct = () => {
                 type="file"
                 disabled={true}
                 className="form-control mt-3"
-                
               />
             </label>
           </div>
         </div>
-
+        {error && (
+          <div className="alert alert-danger" role="alert">
+            <h2>{error}</h2>
+          </div>
+        )}
         <button
           type="submit"
           className="btn btn-login mt-4"

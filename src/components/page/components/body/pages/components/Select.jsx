@@ -58,7 +58,6 @@ const Lineas = [
           },
         ],
       },
-     
     ],
   },
   {
@@ -111,32 +110,28 @@ const Lineas = [
             label: "subgrupo 5",
             value: "05",
           },
-         
         ],
       },
-     
     ],
   },
 ];
 
-const Select = ({  handleOnchange }) => {
-  
+export const Select = ({ handleOnchange }) => {
   const [grupos, setGrupos] = useState(-1);
   const [subgrupo, setSubgrupo] = useState(-2);
 
   const handleGrupos = function (e) {
     const options = e.target.value;
-    console.log("option 1", options);
     setGrupos(parseInt(options));
   };
 
   const handleSubgrupo = function (e) {
     const options = e.target.value;
-    console.log("option 2", options);
     setSubgrupo(parseInt(options));
   };
 
-  console.log("Lineas iniciales", Lineas);
+  
+
 
   return (
     <div className="d-flex justify-content-between">
@@ -147,20 +142,18 @@ const Select = ({  handleOnchange }) => {
             className="form-select mt-3"
             name="linea"
             id="lineas"
-            
             onChange={handleOnchange}
             onClick={handleGrupos}
           >
             <option value={-1} selected disabled={true}>
               Selecciona una linea
             </option>
-            {
-              Array.isArray(Lineas) &&
-                Lineas.map(({ value, label }, i) => (
-                  <option key={i} value={value}>
-                    {label}
-                  </option>
-                ))}
+            {Array.isArray(Lineas) &&
+              Lineas.map(({ value, label }, i) => (
+                <option key={i} value={value}>
+                  {label}
+                </option>
+              ))}
           </select>
         </label>
       </div>
@@ -172,20 +165,18 @@ const Select = ({  handleOnchange }) => {
             className="form-select mt-3"
             name="grupo"
             id="grupo"
-            
             onChange={handleOnchange}
             onClick={handleSubgrupo}
           >
-            <option value={-1} selected disabled ={true}>
+            <option value={-1} selected disabled={true}>
               Selecciona un grupo
             </option>
-            {
-              grupos > -1 &&
-                Lineas[grupos].grupos.map(({ value, label }, i) => (
-                  <option key={i} value={value}>
-                    {label}
-                  </option>
-                ))}
+            {grupos > -1 &&
+              Lineas[grupos].grupos.map(({ value, label }, i) => (
+                <option key={i} value={value}>
+                  {label}
+                </option>
+              ))}
           </select>
         </label>
       </div>
@@ -193,13 +184,13 @@ const Select = ({  handleOnchange }) => {
       <div className="mb-3 col-md-3">
         <label className="form-label">
           Sub Grupo
-          <select
-            className="form-select mt-3"
-            name="subGrupos"
-            id="subGrupos"
-            
-          >
-            <option value={-1} selected disabled={true}>
+          <select className="form-select mt-3" name="sub" id="sub" onChange={handleOnchange}>
+            <option
+              value={-1}
+              selected
+              disabled={true}
+              
+            >
               Selecciona un Sub Grupo
             </option>
             {subgrupo > -1 &&
@@ -219,5 +210,3 @@ const Select = ({  handleOnchange }) => {
 Select.propTypes = {
   handleOnchange: PropTypes.func.isRequired,
 };
-
-export default Select;

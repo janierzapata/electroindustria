@@ -27,3 +27,17 @@ export const login = async (body) => {
         console.log('el error es',error);
     }
 };
+
+export const mostrar = async (form) => {
+    
+    try {
+        const { data } = await http.post('inventario/db/registrar.php', {
+            data:form
+        });
+
+       
+        return data;
+    } catch (error) {
+        console.log('el error es',error);
+    }
+};

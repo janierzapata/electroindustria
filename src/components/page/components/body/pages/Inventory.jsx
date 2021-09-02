@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import { TableProducts } from "./components/TableProducts";
 
 export const Inventory = () => {
-    return (
-        <div>
-            <h1>Inventory fragment</h1>
-        </div>
-    )
-}
+  return (
+    <div >
+      <TableProducts />
+    </div>
+  );
+};
