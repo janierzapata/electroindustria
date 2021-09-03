@@ -33,7 +33,6 @@ export const AddProduct = () => {
     [formState]
   );
 
-  console.log("form", formState);
 
   const handleAdd = () => {
     setEspera(true);

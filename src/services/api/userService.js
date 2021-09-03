@@ -29,7 +29,7 @@ export const login = async (body) => {
 export const mostrar = async () => {
     
     try {
-        const { data } = await http.post('inventario/db/showall.php');
+        const { data } = await http.get('inventario/db/showall.php');
 
        
         return data;
