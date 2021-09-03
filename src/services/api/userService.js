@@ -20,23 +20,20 @@ export const login = async (body) => {
         const { data } = await http.post('inventario/db/registrar.php', {
             data:form
         });
-
-       
         return data;
     } catch (error) {
         console.log('el error es',error);
     }
 };
 
-export const mostrar = async (form) => {
+export const mostrar = async () => {
     
     try {
-        const { data } = await http.post('inventario/db/registrar.php', {
-            data:form
-        });
+        const { data } = await http.post('inventario/db/showall.php');
 
        
         return data;
+    
     } catch (error) {
         console.log('el error es',error);
     }

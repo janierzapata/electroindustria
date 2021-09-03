@@ -9,15 +9,3 @@ const http = axios.create({
 })
 
 export default http;
-
-/*
-http.interceptors.request.use(  async (config)=>{
-    config.baseURL
- }, error =>{ 
-     const typerErrors = ['400','401','402','403','404','405'].includes(error.response.status)
-     typerErrors && alert(error.response ? error.response.data : error.message)
- })
-
- http.interceptors.response.use( async (config)=>{
-    config.baseURL
- }, error =>Promise.reject(console.error()))*/
