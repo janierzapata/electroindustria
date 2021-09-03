@@ -9,7 +9,7 @@ import { Page } from "./components/page/Page";
 
 
 function App() {
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(true);
 
   const ingresar = (estado) => {
     setState(estado)

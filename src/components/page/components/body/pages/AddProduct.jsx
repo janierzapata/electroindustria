@@ -139,7 +139,7 @@ export const AddProduct = () => {
           </div>
         </div>
         {error && (
-          <div className="alert alert-danger text-center" role="alert">
+          <div className="alert alert-danger" role="alert">
             <h2>{error}</h2>
           </div>
         )}
