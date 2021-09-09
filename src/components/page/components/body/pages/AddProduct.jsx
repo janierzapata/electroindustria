@@ -18,6 +18,8 @@ const SelecMemorize = React.memo(Select);
 
 export const AddProduct = () => {
   const [error, setError] = useState(null);
+  const [notify, setNotify] = useState(null);
+  const [select, setSelect] = useState(false);
   const [espera, setEspera] = useState(false);
   const [formState, setFormState] = useState(initialForm);
 
@@ -32,8 +34,7 @@ export const AddProduct = () => {
     },
     [formState]
   );
-
-
+  
   const handleAdd = () => {
     setEspera(true);
 
@@ -52,11 +53,13 @@ export const AddProduct = () => {
         } else {
           setFormState(initialForm);
           setError(null);
+          setNotify("Se creo el producto exitosamente");
         }
       });
     } else {
       alert("Debes llenar todos los campos");
     }
+    setNotify(null);
     setEspera(false);
   };
 
@@ -109,7 +112,7 @@ export const AddProduct = () => {
           </div>
         </div>
 
-        <SelecMemorize nombre={"linea"} handleOnchange={handleChange} />
+        <SelecMemorize handleOnchange={handleChange} />
 
         <div className="d-flex justify-content-between">
           <div className="mb-3 col-md-4">
@@ -131,17 +134,44 @@ export const AddProduct = () => {
               Imagen
               <input
                 type="file"
-                disabled={true}
+                accept="image/png"
+                accept="image/jpg"
                 className="form-control mt-3"
               />
             </label>
           </div>
         </div>
         {error && (
-          <div className="alert alert-danger" role="alert">
-            <h2>{error}</h2>
+          <div
+            class="alert alert-danger alert-dismissible fade show"
+            role="alert"
+          >
+            <strong> ERROR!! </strong> {error}
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
           </div>
         )}
+        {notify && (
+          <>
+            <div
+              class="alert alert-success alert-dismissible fade show"
+              role="alert"
+            >
+              <strong>{notify}</strong>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+          </>
+        )}
+
         <button
           type="submit"
           className="btn btn-login mt-4"
