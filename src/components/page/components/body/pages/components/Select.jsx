@@ -131,8 +131,6 @@ export const Select = ({ handleOnchange }) => {
   };
 
   
-  
-
 
   return (
     <div className="d-flex justify-content-between">
@@ -145,8 +143,9 @@ export const Select = ({ handleOnchange }) => {
             id="lineas"
             onChange={handleOnchange}
             onClick={handleGrupos}
+            defaultValue={-1}
           >
-            <option value={-1} selected disabled={true}>
+            <option value={-1}  disabled={true}>
               Selecciona una linea
             </option>
             {Array.isArray(Lineas) &&
@@ -168,8 +167,9 @@ export const Select = ({ handleOnchange }) => {
             id="grupo"
             onChange={handleOnchange}
             onClick={handleSubgrupo}
+            defaultValue={-1}
           >
-            <option value={-1} selected disabled={true}>
+            <option value={-1}  disabled={true}>
               Selecciona un grupo
             </option>
             {grupos > -1 &&
@@ -185,13 +185,14 @@ export const Select = ({ handleOnchange }) => {
       <div className="mb-3 col-md-3">
         <label className="form-label">
           Sub Grupo
-          <select className="form-select mt-3" name="sub" id="sub" onChange={handleOnchange}>
-            <option
-              value={-1}
-              selected
-              disabled={true}
-              
-            >
+          <select
+            className="form-select mt-3"
+            name="sub"
+            id="sub"
+            onChange={handleOnchange}
+            defaultValue={-1}
+          >
+            <option value={-1}  disabled={true}>
               Selecciona un Sub Grupo
             </option>
             {subgrupo > -1 &&

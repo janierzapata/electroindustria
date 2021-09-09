@@ -46,7 +46,7 @@ export const TableProducts = () => {
               <td>{prop.referencia}</td>
               <td>{prop.cantidad}</td>
               <td>
-                <a href='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg' target="_blank">{"imagen" + prop.nombre}</a>
+                <a rel="noreferrer" href='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg' target="_blank">{"imagen" + prop.nombre}</a>
 
                 {/*
                 <img

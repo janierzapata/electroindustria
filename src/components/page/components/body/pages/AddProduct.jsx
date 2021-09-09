@@ -54,12 +54,14 @@ export const AddProduct = () => {
           setFormState(initialForm);
           setError(null);
           setNotify("Se creo el producto exitosamente");
+          setSelect(true);
         }
       });
     } else {
       alert("Debes llenar todos los campos");
     }
     setNotify(null);
+    setSelect(false);
     setEspera(false);
   };
 
@@ -112,7 +114,7 @@ export const AddProduct = () => {
           </div>
         </div>
 
-        <SelecMemorize handleOnchange={handleChange} />
+        <SelecMemorize handleOnchange={handleChange} selectState={select} />
 
         <div className="d-flex justify-content-between">
           <div className="mb-3 col-md-4">
@@ -135,7 +137,6 @@ export const AddProduct = () => {
               <input
                 type="file"
                 accept="image/png"
-                accept="image/jpg"
                 className="form-control mt-3"
               />
             </label>
